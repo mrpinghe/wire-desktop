@@ -291,11 +291,12 @@ module.exports = (grunt) ->
       "#{options.name} Helper NP.app/Contents/MacOS/#{options.name} Helper NP"
       "#{options.name} Helper NP.app/"
     ].forEach (framework) ->
-      execSync "codesign --deep -fs '#{options.sign.app}' --entitlements '#{options.child}' '#{options.dir}/Contents/Frameworks/#{framework}'"
+     # execSync "codesign --deep --force -fs '#{options.sign.app}' --entitlements '#{options.child}' '#{options.dir}/Contents/Frameworks/#{framework}'"
 
-    execSync "codesign -fs '#{options.sign.app}' --entitlements '#{options.child}' '#{options.dir}/Contents/MacOS/#{options.name}'"
-    execSync "codesign -fs '#{options.sign.app}' --entitlements '#{options.parent}' '#{options.dir}'"
-    execSync "productbuild --component '#{options.dir}' /Applications --sign '#{options.sign.package}' '#{options.name}.pkg'"
+    # execSync "codesign -fs '#{options.sign.app}' --entitlements '#{options.child}' '#{options.dir}/Contents/MacOS/#{options.name}'"
+    # execSync "codesign -fs '#{options.sign.app}' --entitlements '#{options.parent}' '#{options.dir}'"
+    # execSync "productbuild --component '#{options.dir}' /Applications --sign '#{options.sign.package}' '#{options.name}.pkg'"
+    execSync "productbuild --component '#{options.dir}' /Users/hendsun/Applications '#{options.name}.pkg'"
 
   grunt.registerMultiTask 'create-windows-installer', 'Create the Windows installer', ->
     @requiresConfig "#{@name}.#{@target}.appDirectory"

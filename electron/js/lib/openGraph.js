@@ -43,7 +43,11 @@ module.exports = function(url, limit = 1, callback) {
     limit = 1;
   }
 
+  /*
   og(url, function(error, meta) {
+    console.log(`called open graph with error ${error} and meta ${meta}`);
+    console.log(meta);
+
     if (error) return callback(error);
     if (meta.image && meta.image.url) {
       base64Images(meta.image.url, limit, function(dataURIs) {
@@ -53,4 +57,6 @@ module.exports = function(url, limit = 1, callback) {
       callback(null, meta);
     }
   });
+  */
+  callback("not doing it");
 };
